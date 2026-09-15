@@ -59,11 +59,31 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:700px){.desktop-only-download{display:none!important}}
 @media(max-width:430px){body.mobile-device .brand small{display:none}body.mobile-device .header-actions button{font-size:10px;padding:7px}body.mobile-device .toolbar button{flex:1 1 calc(50% - 5px)}body.mobile-device .controls{grid-template-columns:1fr 1fr}body.mobile-device .piano{height:235px}body.mobile-device .note-name{font-size:9px}body.mobile-device .key-code{font-size:7px}}
 
+
+/* ==================== V7.0 ==================== */
+.v7-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:var(--accent);color:#111;font-size:10px;font-weight:900;margin-left:6px}
+.v7-panel{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
+.fx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.fx-grid .control{min-width:0}
+.fx-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fx-toggle input{accent-color:var(--accent)}
+.v7-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.v7-actions button{padding:8px 10px;font-size:12px}
+.visitor-counter-card{display:flex;align-items:center;justify-content:center;gap:8px;width:max-content;max-width:calc(100% - 24px);margin:10px auto 0;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#0002;color:var(--muted);font-size:11px}
+.visitor-counter-card .counterapi{color:var(--text)!important;min-height:0!important}
+.v7-share{margin-top:9px;width:100%}
+.event{cursor:grab;transition:filter .12s,transform .12s}.event:hover{filter:brightness(1.18);transform:translateY(-1px)}
+.event.selected{outline:2px solid var(--accent2);z-index:4}
+.roll-playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--accent2);box-shadow:0 0 9px var(--accent2);pointer-events:none;display:none;z-index:10}
+.rec-time{font-variant-numeric:tabular-nums;margin-left:auto;color:var(--muted);font-size:12px}
+.v7-hint{margin-top:7px}
+@media(max-width:650px){.fx-grid{grid-template-columns:1fr}.v7-badge{font-size:9px}.visitor-counter-card{margin-bottom:2px}}
+
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC</small></div>
+  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V7.0</span></small></div>
   <div class="header-actions">
     <button id="themeBtn">🌙 Tema</button><button id="fullBtn">⛶ Tela cheia</button>
   </div>
@@ -78,7 +98,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 <section>
 <div class="panel">
   <div class="toolbar">
-    <button id="recBtn">🔴 Gravar</button><button id="playBtn">▶️ Reproduzir</button><button id="stopBtn">⏹ Parar</button><button id="clearBtn" class="danger">🗑 Limpar</button>
+    <button id="recBtn">🔴 Gravar</button><button id="recPauseBtn">⏸ Pausar</button><span id="recTime" class="rec-time">00:00.0</span><button id="playBtn">▶️ Reproduzir</button><button id="stopBtn">⏹ Parar</button><button id="clearBtn" class="danger">🗑 Limpar</button>
     <button id="saveBtn">💾 Salvar</button><button id="loadBtn">📂 Carregar</button>
   </div>
   <div class="piano-wrap" id="pianoWrap"><div class="piano" id="piano"></div></div>
@@ -86,7 +106,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 </div>
 <div class="panel" style="margin-top:14px">
   <h2>🎼 Piano Roll</h2><div class="roll"><div class="roll-inner" id="roll"></div></div>
-  <div class="hint">As notas gravadas aparecem aqui. O eixo horizontal representa o tempo.</div>
+  <div class="hint">As notas gravadas aparecem aqui. Arraste para mudar o tempo; clique para selecionar; Delete remove; Quantizar encaixa as notas na grade.</div><div class="v7-actions"><button id="quantizeBtn">🧲 Quantizar</button><button id="deleteSelectedBtn">🗑️ Remover selecionada</button></div>
 </div>
 </section>
 
@@ -106,6 +126,26 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 <div class="control"><label>Release <b id="rVal">0.25s</b></label><input id="release" type="range" min="0.01" max="3" step="0.01" value="0.25"></div>
 </div>
 </div>
+
+<div class="panel v7-panel" style="margin-top:14px">
+<h2>✨ V7.0 — Efeitos & Filtro</h2>
+<div class="fx-grid">
+  <div class="control"><label>Filtro</label><select id="filterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
+  <div class="control"><label>Cutoff <b id="cutoffVal">8000 Hz</b></label><input id="cutoff" type="range" min="80" max="18000" step="10" value="8000"></div>
+  <div class="control"><label>Resonância <b id="resVal">0.7</b></label><input id="resonance" type="range" min="0.1" max="18" step="0.1" value="0.7"></div>
+  <div class="control"><label>Vibrato <b id="vibratoVal">0%</b></label><input id="vibrato" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Reverb <b id="reverbVal">0%</b></label><input id="reverb" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Delay <b id="delayVal">0%</b></label><input id="delay" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Distortion <b id="distVal">0%</b></label><input id="distortion" type="range" min="0" max="100" value="0"></div>
+  <div class="control fx-toggle"><span>🎚️ FX ativos</span><input id="fxEnabled" type="checkbox" checked></div>
+</div>
+<div class="v7-actions">
+  <button id="resetFxBtn">↺ Reset FX</button>
+  <button id="shareBtn">🔗 Compartilhar música</button>
+</div>
+<div class="hint v7-hint">Low/High/Band-pass, vibrato, reverb, delay e distortion são processados pelo Web Audio.</div>
+</div>
+
 <div class="panel" style="margin-top:14px">
 <h2>🎚️ Mixagem</h2>
 <div class="meter"><i id="meter"></i></div>
@@ -119,7 +159,13 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 </div>
 </aside>
 </div>
-<div class="footer">Piano Mobile V2 • Flask + Web Audio API • funciona em celular e PC</div>
+
+<div class="visitor-counter-card" aria-live="polite">
+  👀 <span>Visitas ao Piano Synth:</span>
+  <div class="counterapi" ns="piano-synth.github.io" key="site" action="view" noIcon="true" noLink="true" noCss="true" noFormatting="false"></div>
+</div>
+<script src="https://counterapi.com/c.js?ns=piano-synth.github.io" async></script>
+<div class="footer">Piano Synth V7.0 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
 </main>
 <script>
 const WHITE=[
@@ -257,5 +303,133 @@ window.addEventListener('orientationchange',()=>setTimeout(detectDevice,100));
 detectDevice();
 buildPiano();updateLabels();loadProjects();
 </script>
+
+<script>
+/* ============================================================
+   PIANO SYNTH V7.0 — FX / PIANO ROLL / SHARING / RECORD TIMER
+   ============================================================ */
+let v7FxReady=false,v7ReverbNode=null,v7ReverbWet=null,v7DelayNode=null,v7DelayWet=null,v7DistNode=null,v7DistWet=null,v7FxBus=null;
+let v7RecordPaused=false,v7RecordPauseAt=0,v7RecordPausedTotal=0,v7RecTimer=null,v7SelectedEvent=-1,v7Drag=null;
+
+function v7Num(id, fallback){const e=$(id); return e?+e.value:fallback}
+function v7UpdateLabels(){
+  const set=(id,val)=>{if($(id))$(id).textContent=val};
+  set('cutoffVal',Math.round(v7Num('cutoff',8000))+' Hz');
+  set('resVal',v7Num('resonance',.7).toFixed(1));
+  set('vibratoVal',Math.round(v7Num('vibrato',0))+'%');
+  set('reverbVal',Math.round(v7Num('reverb',0))+'%');
+  set('delayVal',Math.round(v7Num('delay',0))+'%');
+  set('distVal',Math.round(v7Num('distortion',0))+'%');
+}
+function v7Impulse(ctx,seconds=2.6,decay=2.2){
+  const len=Math.floor(ctx.sampleRate*seconds), b=ctx.createBuffer(2,len,ctx.sampleRate);
+  for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,decay)}
+  return b;
+}
+function v7Curve(amount){const n=44100,curve=new Float32Array(n),k=Math.max(1,amount);for(let i=0;i<n;i++){const x=i*2/n-1;curve[i]=((3+k)*x*20*Math.PI/180)/(Math.PI+k*Math.abs(x))}return curve}
+function v7SetupFx(){
+  if(v7FxReady||!audio)return;
+  v7FxReady=true;
+  v7FxBus=audio.createGain();
+  v7DistNode=audio.createWaveShaper();v7DistNode.oversample='4x';v7DistNode.curve=v7Curve(0);
+  v7ReverbNode=audio.createConvolver();v7ReverbNode.buffer=v7Impulse(audio);
+  v7DelayNode=audio.createDelay(1.0);v7DelayNode.delayTime.value=.28;
+  const delayFeedback=audio.createGain();delayFeedback.gain.value=.28;
+  v7ReverbWet=audio.createGain();v7DelayWet=audio.createGain();v7DistWet=audio.createGain();
+  v7FxBus.connect(v7DistNode);v7DistNode.connect(masterGain);
+  v7FxBus.connect(v7ReverbNode);v7ReverbNode.connect(v7ReverbWet);v7ReverbWet.connect(masterGain);
+  v7FxBus.connect(v7DelayNode);v7DelayNode.connect(v7DelayWet);v7DelayWet.connect(masterGain);v7DelayNode.connect(delayFeedback);delayFeedback.connect(v7DelayNode);
+  leadGain.disconnect();bassGain.disconnect();leadGain.connect(v7FxBus);bassGain.connect(v7FxBus);
+  v7ApplyFx();
+}
+function v7ApplyFx(){
+  if(!audio||!v7FxReady)return;
+  const enabled=$('fxEnabled')?.checked!==false;
+  const r=enabled?v7Num('reverb',0)/100:0,d=enabled?v7Num('delay',0)/100:0,dist=enabled?v7Num('distortion',0)/100:0;
+  v7ReverbWet.gain.value=r*.75;v7DelayWet.gain.value=d*.65;v7DistWet.gain.value=dist;
+  v7DistNode.curve=v7Curve(dist*60);
+}
+function v7Ensure(){ensureAudio();v7SetupFx();}
+function v7FilterForVoice(filter,now){
+  filter.type=$('filterType')?.value||'lowpass';
+  filter.frequency.setValueAtTime(v7Num('cutoff',8000),now);
+  filter.Q.setValueAtTime(v7Num('resonance',.7),now);
+}
+function v7StartVibrato(o,f,now){
+  const pct=v7Num('vibrato',0)/100;if(!pct)return null;
+  const lfo=audio.createOscillator(),g=audio.createGain();lfo.frequency.value=4.8;g.gain.value=f*.018*pct;lfo.connect(g);g.connect(o.detune);lfo.start(now);return {lfo,g};
+}
+/* Replace the original voice functions while preserving recording format. */
+noteOn=function(key,baseFreq){
+  v7Ensure(); if(voices.has(key))return;
+  const now=audio.currentTime,gain=audio.createGain(),filter=audio.createBiquadFilter(),parts=waveParts($('wave').value,octaveFreq(baseFreq)),os=[];
+  v7FilterForVoice(filter,now);filter.connect(gain);gain.connect($('wave').value==='Sub-Bass'?bassGain:leadGain);
+  const attack=+$('attack').value,decay=+$('decay').value,sustain=+$('sustain').value;
+  gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.22,now+attack);gain.gain.linearRampToValueAtTime(.22*sustain,now+attack+decay);
+  for(const [type,f,vol] of parts){const o=audio.createOscillator();o.type=type;o.frequency.value=f;o.detune.value=(Math.random()-.5)*7;o.connect(filter);o.start();os.push(o);v7StartVibrato(o,f,now)}
+  voices.set(key,{gain,os,started:now});highlight(key,true);
+  if(recording&&!v7RecordPaused)recorded.push({key,freq:baseFreq,time:now-recStart-v7RecordPausedTotal,duration:0});
+  const meter=$('meter');if(meter){meter.style.width='100%';setTimeout(()=>meter.style.width='0',100)}
+};
+noteOff=function(key){
+  const v=voices.get(key);if(!v||!audio)return;const now=audio.currentTime,rel=+$('release').value;
+  v.gain.gain.cancelScheduledValues(now);v.gain.gain.setTargetAtTime(0,now,Math.max(.01,rel/4));
+  setTimeout(()=>{try{v.os.forEach(o=>o.stop())}catch(e){}},rel*1000+80);voices.delete(key);highlight(key,false);
+  if(recording&&!v7RecordPaused){const last=[...recorded].reverse().find(x=>x.key===key&&x.duration===0);if(last)last.duration=Math.max(.02,now-recStart-v7RecordPausedTotal-last.time)}
+};
+
+function v7FormatTime(sec){const m=Math.floor(sec/60),s=sec-m*60;return String(m).padStart(2,'0')+':'+s.toFixed(1).padStart(4,'0')}
+function v7Timer(){if(!recording||!$('recTime'))return;const now=audio?audio.currentTime:0;const elapsed=Math.max(0,now-recStart-v7RecordPausedTotal);$('recTime').textContent=v7FormatTime(elapsed)}
+const _startRec=startRec;
+startRec=function(){_startRec();v7RecordPaused=false;v7RecordPauseAt=0;v7RecordPausedTotal=0;clearInterval(v7RecTimer);v7RecTimer=setInterval(v7Timer,100);if($('recPauseBtn'))$('recPauseBtn').textContent='⏸ Pausar';v7Timer()};
+const _stopRec=stopRec;
+stopRec=function(){_stopRec();clearInterval(v7RecTimer);v7RecordPaused=false;if($('recPauseBtn'))$('recPauseBtn').textContent='⏸ Pausar';v7Timer()};
+function v7TogglePause(){
+  if(!recording)return;
+  if(!v7RecordPaused){v7RecordPaused=true;v7RecordPauseAt=audio?audio.currentTime:0;if($('recPauseBtn'))$('recPauseBtn').textContent='▶ Continuar';$('status').textContent='Gravação pausada.'}
+  else{const now=audio?audio.currentTime:v7RecordPauseAt;v7RecordPausedTotal+=Math.max(0,now-v7RecordPauseAt);v7RecordPaused=false;if($('recPauseBtn'))$('recPauseBtn').textContent='⏸ Pausar';$('status').textContent='Gravando...'}
+}
+$('recPauseBtn')?.addEventListener('click',v7TogglePause);
+
+/* Editable piano roll */
+function v7DrawRoll(){
+  const r=$('roll');if(!r)return;r.innerHTML='';v7SelectedEvent=-1;
+  if(!recorded.length)return;
+  const max=Math.max(...recorded.map(x=>x.time+(x.duration||.2)),1);r.style.width=Math.max(700,max*120+140)+'px';
+  recorded.forEach((e,i)=>{const d=document.createElement('div');d.className='event';d.dataset.index=i;d.style.left=(e.time*120)+'px';d.style.top=((i%10)*19+5)+'px';d.style.width=Math.max(24,(e.duration||.18)*120)+'px';d.textContent=e.key.toUpperCase();
+    d.addEventListener('click',ev=>{ev.stopPropagation();v7SelectedEvent=i;document.querySelectorAll('.event').forEach(x=>x.classList.remove('selected'));d.classList.add('selected')});
+    d.addEventListener('dblclick',()=>{recorded.splice(i,1);v7DrawRoll()});
+    d.addEventListener('pointerdown',ev=>{if(ev.button!==0)return;v7Drag={i,startX:ev.clientX,orig:recorded[i].time,el:d};d.setPointerCapture?.(ev.pointerId)});
+    d.addEventListener('pointermove',ev=>{if(!v7Drag||v7Drag.i!==i)return;recorded[i].time=Math.max(0,v7Drag.orig+(ev.clientX-v7Drag.startX)/120);d.style.left=(recorded[i].time*120)+'px'});
+    d.addEventListener('pointerup',()=>{if(v7Drag?.i===i){v7Drag=null;v7DrawRoll()}});
+    r.appendChild(d);
+  });
+}
+function v7Quantize(){if(!recorded.length)return;const grid=.125;recorded.forEach(e=>e.time=Math.max(0,Math.round(e.time/grid)*grid));v7DrawRoll();$('status').textContent='🧲 Notas quantizadas em 1/8.'}
+$('quantizeBtn')?.addEventListener('click',v7Quantize);
+$('deleteSelectedBtn')?.addEventListener('click',()=>{if(v7SelectedEvent>=0){recorded.splice(v7SelectedEvent,1);v7SelectedEvent=-1;v7DrawRoll();$('status').textContent='Nota removida.'}});
+
+/* Wrap drawRoll so every existing action gets the V7 editor. */
+const _drawRoll=drawRoll;drawRoll=function(){_drawRoll();v7DrawRoll()};
+
+/* FX controls */
+['filterType','cutoff','resonance','vibrato','reverb','delay','distortion','fxEnabled'].forEach(id=>$(id)?.addEventListener('input',()=>{v7UpdateLabels();v7ApplyFx()}));
+$('resetFxBtn')?.addEventListener('click',()=>{const vals={filterType:'lowpass',cutoff:8000,resonance:.7,vibrato:0,reverb:0,delay:0,distortion:0};Object.entries(vals).forEach(([k,v])=>$(k).value=v);$('fxEnabled').checked=true;v7UpdateLabels();v7ApplyFx();$('status').textContent='FX restaurados.'});
+
+/* Projects now also preserve V7 FX settings. */
+const _project=project;project=function(){const p=_project();return {...p,version:7,filterType:$('filterType')?.value,cutoff:v7Num('cutoff',8000),resonance:v7Num('resonance',.7),vibrato:v7Num('vibrato',0),reverb:v7Num('reverb',0),delay:v7Num('delay',0),distortion:v7Num('distortion',0),fxEnabled:$('fxEnabled')?.checked!==false}};
+const _applyProject=applyProject;applyProject=function(p){_applyProject(p);['filterType','cutoff','resonance','vibrato','reverb','delay','distortion'].forEach(k=>{if(p[k]!==undefined&&$(k))$(k).value=p[k]});if($('fxEnabled'))$('fxEnabled').checked=p.fxEnabled!==false;v7UpdateLabels();v7ApplyFx();v7DrawRoll()};
+
+/* Share recorded music in URL hash. */
+function v7Share(){
+  if(!recorded.length){$('status').textContent='Grave uma música antes de compartilhar.';return}
+  try{const payload=btoa(unescape(encodeURIComponent(JSON.stringify({recorded,settings:project()}))));const url=location.origin+location.pathname+'#song='+payload;navigator.clipboard?.writeText(url).then(()=>$('status').textContent='🔗 Link da música copiado!').catch(()=>prompt('Copie este link:',url));}catch(e){$('status').textContent='Não foi possível gerar o link.'}
+}
+$('shareBtn')?.addEventListener('click',v7Share);
+function v7LoadShared(){const h=location.hash;if(!h.startsWith('#song='))return;try{const obj=JSON.parse(decodeURIComponent(escape(atob(h.slice(6)))));if(obj?.recorded){recorded=obj.recorded;v7DrawRoll();$('status').textContent='🔗 Música carregada pelo link.'}}catch(e){console.warn('Shared song invalid',e)}}
+
+v7UpdateLabels();v7LoadShared();
+</script>
+
 </body>
 </html>
