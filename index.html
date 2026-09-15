@@ -60,7 +60,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:430px){body.mobile-device .brand small{display:none}body.mobile-device .header-actions button{font-size:10px;padding:7px}body.mobile-device .toolbar button{flex:1 1 calc(50% - 5px)}body.mobile-device .controls{grid-template-columns:1fr 1fr}body.mobile-device .piano{height:235px}body.mobile-device .note-name{font-size:9px}body.mobile-device .key-code{font-size:7px}}
 
 
-/* ==================== V7.5 ==================== */
+/* ==================== V8.0 ==================== */
 .v7-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:var(--accent);color:#111;font-size:10px;font-weight:900;margin-left:6px}
 .v7-panel{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
 .fx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -80,7 +80,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:650px){.fx-grid{grid-template-columns:1fr}.v7-badge{font-size:9px}.visitor-counter-card{margin-bottom:2px}}
 
 
-/* ==================== V7.5 THEMES + MOBILE FX ==================== */
+/* ==================== V8.0 THEMES + MOBILE FX ==================== */
 body.theme-neon{--bg:#05030b;--panel:#0d0920;--panel2:#15102e;--border:#563cff;--text:#f5f2ff;--muted:#aaa0d0;--accent:#00f5ff;--accent2:#ff3df2;--danger:#ff5577}
 body.theme-ocean{--bg:#041016;--panel:#071b24;--panel2:#0c2631;--border:#1e7287;--text:#e9fcff;--muted:#91c5d0;--accent:#28d7ff;--accent2:#38ffa9;--danger:#ff6d8a}
 body.theme-sunset{--bg:#170a0b;--panel:#241012;--panel2:#321619;--border:#8c3c31;--text:#fff5ef;--muted:#d5a89b;--accent:#ffb13b;--accent2:#ff5d7a;--danger:#ff526f}
@@ -105,13 +105,35 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 .sustain-on{background:var(--accent)!important;color:#111!important;border-color:var(--accent)!important}
 .counter-number{font-variant-numeric:tabular-nums;font-weight:800;min-width:2ch}
 
+
+/* ==================== V8.0 UI ==================== */
+body.theme-purple{--bg:#10051b;--panel:#1a0b2b;--panel2:#24103a;--border:#7044a5;--text:#f7ecff;--muted:#c2a8d8;--accent:#d56bff;--accent2:#6ef2ff;--danger:#ff648d}
+body.theme-forest{--bg:#06130d;--panel:#0a2015;--panel2:#0e2b1c;--border:#2d7049;--text:#eafff0;--muted:#91c6a5;--accent:#55e88a;--accent2:#c7ff6a;--danger:#ff6876}
+body.theme-ice{--bg:#07111d;--panel:#0c1c2d;--panel2:#10283d;--border:#3c6f9d;--text:#edf8ff;--muted:#9fc1d9;--accent:#6ee7ff;--accent2:#9aa7ff;--danger:#ff718b}
+body.theme-rose{--bg:#190810;--panel:#28101a;--panel2:#351421;--border:#7d3b52;--text:#fff0f5;--muted:#d2a4b5;--accent:#ff6f9f;--accent2:#ffc0d6;--danger:#ff526e}
+body.theme-amber{--bg:#171007;--panel:#24190b;--panel2:#33230d;--border:#76521e;--text:#fff8e9;--muted:#d5bd8f;--accent:#ffbf47;--accent2:#ffe48a;--danger:#ff6b4f}
+body.theme-graphite{--bg:#101214;--panel:#181b1f;--panel2:#22262b;--border:#4a515a;--text:#f4f6f8;--muted:#aeb6bf;--accent:#cbd5e1;--accent2:#60a5fa;--danger:#fb7185}
+.mobile-extra-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mobile-extra-controls .toggle-card{min-height:44px}
+body.mobile-device .grid>section{display:block}
+body.mobile-device aside>.panel{display:none!important}
+body.mobile-device.mobile-tab-main .grid>section{display:block}
+body.mobile-device.mobile-tab-main .sound-panel,body.mobile-device.mobile-tab-main .fx-panel-desktop,body.mobile-device.mobile-tab-main .fx-panel-mobile,body.mobile-device.mobile-tab-main .projects-panel{display:none!important}
+body.mobile-device.mobile-tab-sound .sound-panel{display:block!important}
+body.mobile-device.mobile-tab-sound .grid>section{display:none}
+body.mobile-device.mobile-tab-fx .fx-panel-mobile{display:block!important}
+body.mobile-device.mobile-tab-fx .grid>section{display:none}
+body.mobile-device.mobile-tab-projects .projects-panel{display:block!important}
+body.mobile-device.mobile-tab-projects .grid>section{display:none}
+@media(max-width:650px){.mobile-extra-controls{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.theme-select{min-width:0;max-width:180px}.header-actions{width:auto}}
+@media(max-width:430px){.controls{grid-template-columns:1fr}.header-actions{gap:4px}.theme-select{width:130px}}
+
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V7.0</span></small></div>
+  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V8.0</span></small></div>
   <div class="header-actions">
-    <select id="themeSelect" class="theme-select" title="Tema"><option value="dark">☕ Mocha</option><option value="cyber">⚡ Cyberpunk</option><option value="neon">💜 Neon</option><option value="ocean">🌊 Ocean</option><option value="sunset">🌅 Sunset</option><option value="matrix">🟢 Matrix</option><option value="light">☀️ Claro</option></select><button id="themeBtn">🎨 Tema</button><button id="fullBtn">⛶ Tela cheia</button>
+    <select id="themeSelect" class="theme-select" title="Tema"><option value="dark">☕ Mocha</option><option value="cyber">⚡ Cyberpunk</option><option value="neon">💜 Neon</option><option value="ocean">🌊 Ocean</option><option value="sunset">🌅 Sunset</option><option value="matrix">🟢 Matrix</option><option value="purple">🟣 Purple Haze</option><option value="forest">🌲 Forest</option><option value="ice">🧊 Ice</option><option value="rose">🌹 Rose</option><option value="amber">🟠 Amber</option><option value="graphite">🪨 Graphite</option><option value="light">☀️ Claro</option></select><button id="fullBtn">⛶ Tela cheia</button>
   </div>
 </header>
 <main>
@@ -138,7 +160,7 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 </section>
 
 <aside>
-<div class="panel">
+<div class="panel sound-panel">
 <h2>🎛️ Som</h2>
 <div class="controls">
 <div class="control"><label>Onda</label><select id="wave"><option>Harmônico (Pro)</option><option>Senoidal (Puro)</option><option>Quadrada (8-bit)</option><option>Dente de Serra</option><option>Órgão</option><option>SuperSaw</option><option>Brass (Sopro)</option><option>Sub-Bass</option><option>Triangle Soft</option><option>Digital Bell</option><option>Lo-Fi</option></select></div>
@@ -150,12 +172,16 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 <div class="control"><label>Attack <b id="aVal">0.02s</b></label><input id="attack" type="range" min="0.005" max="1" step="0.005" value="0.02"></div>
 <div class="control"><label>Decay <b id="dVal">0.12s</b></label><input id="decay" type="range" min="0.01" max="2" step="0.01" value="0.12"></div>
 <div class="control"><label>Sustain <b id="sVal">70%</b></label><input id="sustain" type="range" min="0" max="1" step="0.01" value="0.7"></div>
-<div class="control"><label>Release <b id="rVal">0.25s</b></label><input id="release" type="range" min="0.01" max="3" step="0.01" value="0.25"></div>
+<div class="control"><label>Compressor <b id="compVal">75%</b></label><input id="compressor" type="range" min="0" max="100" value="75"></div>
+<div class="control"><label>Pan <b id="panVal">0</b></label><input id="pan" type="range" min="-100" max="100" value="0"></div>
+<div class="control"><label>BPM <b id="bpmVal">100</b></label><input id="bpm" type="range" min="50" max="180" value="100"></div>
+<div class="control fx-toggle"><span>🎹 Arpejador</span><input id="arpEnabled" type="checkbox"></div>
+<div class="control"><label>Arpejo <b id="arpVal">1/8</b></label><select id="arpRate"><option value="0.125">1/8</option><option value="0.25">1/4</option><option value="0.0625">1/16</option></select></div>
 </div>
 </div>
 
-<div class="panel v7-panel v7-panel-desktop" style="margin-top:14px">
-<h2>✨ V7.5 — Efeitos & Filtro</h2>
+<div class="panel v7-panel v7-panel-desktop fx-panel-desktop" style="margin-top:14px">
+<h2>✨ V8.0 — Efeitos & Filtro</h2>
 <div class="fx-grid">
   <div class="control"><label>Filtro</label><select id="filterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
   <div class="control"><label>Cutoff <b id="cutoffVal">8000 Hz</b></label><input id="cutoff" type="range" min="80" max="18000" step="10" value="8000"></div>
@@ -172,7 +198,7 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 </div>
 <div class="hint v7-hint">Low/High/Band-pass, vibrato, reverb, delay e distortion são processados pelo Web Audio.</div>
 </div>
-<div class="panel mobile-fx-panel v7-panel-mobile">
+<div class="panel mobile-fx-panel v7-panel-mobile fx-panel-mobile">
 <h2>✨ Efeitos & Filtro</h2>
 <div class="fx-grid">
   <div class="control"><label>Filtro</label><select id="mFilterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
@@ -185,6 +211,11 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
   <div class="toggle-card"><span>🎚️ FX ativos</span><input id="mFxEnabled" type="checkbox" checked></div>
 </div>
 <div class="v7-actions"><button id="mResetFxBtn">↺ Reset FX</button></div>
+<div class="mobile-extra-controls">
+  <div class="control"><label>Compressor <b id="mCompVal">75%</b></label><input id="mCompressor" type="range" min="0" max="100" value="75"></div>
+  <div class="control"><label>BPM <b id="mBpmVal">100</b></label><input id="mBpm" type="range" min="50" max="180" value="100"></div>
+  <div class="toggle-card"><span>🎹 Arpejador</span><input id="mArpEnabled" type="checkbox"></div>
+</div>
 <div class="hint">Os controles do celular ficam sincronizados com os controles do PC.</div>
 </div>
 
@@ -193,7 +224,7 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 <div class="meter"><i id="meter"></i></div>
 <p class="hint">Áudio é sintetizado diretamente no navegador.</p>
 </div>
-<div class="panel" style="margin-top:14px">
+<div class="panel projects-panel" style="margin-top:14px">
 <h2>💾 Projetos</h2>
 <div class="row"><input id="projectName" placeholder="Nome do projeto" style="flex:1;min-width:150px;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:9px;border-radius:9px"><button id="serverSave">Salvar projeto</button></div>
 <div class="projects" id="projects"></div>
@@ -206,7 +237,7 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
   👀 <span>Visitas ao Piano Synth:</span>
   <span id="visitorCount" class="counter-number">…</span>
 </div>
-<div class="footer">Piano Synth V7.5 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
+<div class="footer">Piano Synth V8.0 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
 </main>
 <script>
 const WHITE=[
@@ -347,7 +378,7 @@ buildPiano();updateLabels();loadProjects();
 
 <script>
 /* ============================================================
-   PIANO SYNTH V7.0 — FX / PIANO ROLL / SHARING / RECORD TIMER
+   PIANO SYNTH V8.0 — FX / PIANO ROLL / SHARING / RECORD TIMER
    ============================================================ */
 let v7FxReady=false,v7ReverbNode=null,v7ReverbWet=null,v7DelayNode=null,v7DelayWet=null,v7DistNode=null,v7DistWet=null,v7FxBus=null;
 let v7RecordPaused=false,v7RecordPauseAt=0,v7RecordPausedTotal=0,v7RecTimer=null,v7SelectedEvent=-1,v7Drag=null;
@@ -470,6 +501,273 @@ $('shareBtn')?.addEventListener('click',v7Share);
 function v7LoadShared(){const h=location.hash;if(!h.startsWith('#song='))return;try{const obj=JSON.parse(decodeURIComponent(escape(atob(h.slice(6)))));if(obj?.recorded){recorded=obj.recorded;v7DrawRoll();$('status').textContent='🔗 Música carregada pelo link.'}}catch(e){console.warn('Shared song invalid',e)}}
 
 v7UpdateLabels();v7LoadShared();
+</script>
+
+<script>
+/* ============================================================
+   PIANO SYNTH V8.0 — CLEAN RUNTIME REBUILD
+   Rebuilds the V7.5 audio/effects layer without replacing the
+   working piano, projects or GitHub Pages architecture.
+   ============================================================ */
+(function(){
+  'use strict';
+  const q=id=>document.getElementById(id);
+  const safe=(fn)=>{try{return fn()}catch(e){console.warn('[Piano Synth V8]',e);return null}};
+
+  /* ---------- THEME: one selector, one system ---------- */
+  const themes=['dark','cyber','neon','ocean','sunset','matrix','purple','forest','ice','rose','amber','graphite','light'];
+  function applyTheme(name){
+    if(!themes.includes(name)) name='dark';
+    themes.forEach(t=>{document.body.classList.remove('theme-'+t);document.body.classList.remove(t)});
+    if(name==='cyber') document.body.classList.add('cyber');
+    else if(name!=='dark') document.body.classList.add('theme-'+name);
+    localStorage.setItem('pianoSynthTheme',name);
+    if(q('themeSelect')) q('themeSelect').value=name;
+  }
+  const savedTheme=localStorage.getItem('pianoSynthTheme')||'dark';
+  applyTheme(savedTheme);
+  q('themeSelect')?.addEventListener('change',e=>applyTheme(e.target.value));
+
+  /* ---------- FULLSCREEN ---------- */
+  q('fullBtn')?.addEventListener('click',async()=>{
+    try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();}
+    catch(e){q('status').textContent='Tela cheia não disponível neste navegador.'}
+  });
+
+  /* ---------- MOBILE TABS: deterministic ---------- */
+  function setMobileTab(tab){
+    document.body.classList.remove('mobile-tab-main','mobile-tab-sound','mobile-tab-fx','mobile-tab-projects');
+    document.body.classList.add('mobile-tab-'+tab);
+    document.querySelectorAll('.mobile-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.mobileTab===tab));
+  }
+  document.querySelectorAll('.mobile-tabs button').forEach(b=>b.addEventListener('click',()=>setMobileTab(b.dataset.mobileTab)));
+  setMobileTab('main');
+
+  /* ---------- AUDIO ENGINE ---------- */
+  let v8Ready=false, v8Input=null, v8Dry=null, v8Reverb=null, v8ReverbWet=null;
+  let v8Delay=null, v8DelayWet=null, v8Feedback=null, v8Dist=null, v8DistWet=null;
+  let v8Compressor=null, v8Pan=null;
+  let sustainOn=false, sustained=new Set();
+  let arpTimer=null, arpIndex=0, arpHeld=new Map(), arpCurrent=null;
+  let v8RecordPaused=false, v8PauseAt=0, v8PausedTotal=0, v8Timer=null;
+
+  function v8Num(id,def){const e=q(id);return e?Number(e.value):def}
+  function v8Enabled(){return q('fxEnabled')?.checked!==false}
+  function v8Curve(amount){
+    const n=44100,c=new Float32Array(n),k=Math.max(1,amount);
+    for(let i=0;i<n;i++){const x=i*2/n-1;c[i]=((3+k)*x*20*Math.PI/180)/(Math.PI+k*Math.abs(x))}
+    return c;
+  }
+  function v8Impulse(seconds=2.8,decay=2.5){
+    const len=Math.floor(audio.sampleRate*seconds),b=audio.createBuffer(2,len,audio.sampleRate);
+    for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,decay)}
+    return b;
+  }
+  function v8Setup(){
+    if(v8Ready)return;
+    ensureAudio();
+    v8Ready=true;
+    [leadGain,bassGain].forEach(n=>{try{n.disconnect()}catch(e){}});
+    try{masterGain.disconnect()}catch(e){}
+    v8Input=audio.createGain();
+    v8Dry=audio.createGain();
+    v8Reverb=audio.createConvolver();
+    v8ReverbWet=audio.createGain();
+    v8Delay=audio.createDelay(1.0);
+    v8DelayWet=audio.createGain();
+    v8Feedback=audio.createGain();
+    v8Dist=audio.createWaveShaper();
+    v8DistWet=audio.createGain();
+    v8Compressor=audio.createDynamicsCompressor();
+    v8Pan=audio.createStereoPanner();
+    v8Reverb.buffer=v8Impulse();
+    v8Delay.delayTime.value=.28;
+    v8Feedback.gain.value=.28;
+    v8Dist.oversample='4x';
+    v8Dist.curve=v8Curve(1);
+    v8Compressor.threshold.value=-12;
+    v8Compressor.knee.value=18;
+    v8Compressor.ratio.value=4;
+    v8Compressor.attack.value=.003;
+    v8Compressor.release.value=.25;
+    leadGain.connect(v8Input);bassGain.connect(v8Input);
+    v8Input.connect(v8Dry);v8Dry.connect(v8Compressor);
+    v8Input.connect(v8Dist);v8Dist.connect(v8DistWet);v8DistWet.connect(v8Compressor);
+    v8Input.connect(v8Reverb);v8Reverb.connect(v8ReverbWet);v8ReverbWet.connect(v8Compressor);
+    v8Input.connect(v8Delay);v8Delay.connect(v8DelayWet);v8DelayWet.connect(v8Compressor);
+    v8Delay.connect(v8Feedback);v8Feedback.connect(v8Delay);
+    v8Compressor.connect(v8Pan);v8Pan.connect(masterGain);masterGain.connect(audio.destination);
+    v8Apply();
+  }
+  function v8Apply(){
+    if(!v8Ready)return;
+    const on=v8Enabled();
+    const rv=on?v8Num('reverb',0)/100:0,dl=on?v8Num('delay',0)/100:0,ds=on?v8Num('distortion',0)/100:0;
+    v8ReverbWet.gain.value=rv*.75;
+    v8DelayWet.gain.value=dl*.70;
+    v8Feedback.gain.value=.12+dl*.30;
+    v8DistWet.gain.value=ds;
+    v8Dist.curve=v8Curve(1+ds*70);
+    const comp=v8Num('compressor',75)/100;
+    v8Compressor.threshold.value=-2-(comp*28);
+    v8Compressor.ratio.value=1.5+comp*8;
+    v8Pan.pan.value=v8Num('pan',0)/100;
+    const cutoff=v8Num('cutoff',8000),res=v8Num('resonance',.7),type=q('filterType')?.value||'lowpass';
+    voices.forEach(v=>{if(v.filter){try{v.filter.type=type;v.filter.frequency.setTargetAtTime(cutoff,audio.currentTime,.015);v.filter.Q.setTargetAtTime(res,audio.currentTime,.015)}catch(e){}}});
+    ['mFilterType','mCutoff','mResonance','mVibrato','mReverb','mDelay','mDistortion','mFxEnabled','mCompressor','mBpm','mArpEnabled'].forEach(()=>{});
+  }
+  function v8Wave(kind,f){
+    if(kind==='Senoidal (Puro)')return [['sine',f,1]];
+    if(kind==='Quadrada (8-bit)')return [['square',f,1]];
+    if(kind==='Dente de Serra')return [['sawtooth',f,1]];
+    if(kind==='Órgão')return [['sine',f,.8],['sine',f*2,.35],['sine',f*4,.15]];
+    if(kind==='SuperSaw')return [['sawtooth',f*.997,.42],['sawtooth',f,.5],['sawtooth',f*1.003,.42]];
+    if(kind==='Brass (Sopro)')return [['sawtooth',f,.55],['square',f*2,.18]];
+    if(kind==='Sub-Bass')return [['sine',f,.9],['sine',f/2,.5]];
+    if(kind==='Triangle Soft')return [['triangle',f,.9],['sine',f*2,.12]];
+    if(kind==='Digital Bell')return [['sine',f,.65],['sine',f*2.01,.3],['sine',f*3.99,.18],['sine',f*6.02,.08]];
+    if(kind==='Lo-Fi')return [['triangle',f,.7],['square',f*2,.08]];
+    return [['sine',f,.7],['triangle',f*2,.22],['sine',f*3,.1],['sine',f*4,.06]];
+  }
+  function v8VoiceOn(key,baseFreq,record=true){
+    v8Setup();if(voices.has(key))return;
+    const now=audio.currentTime,kind=q('wave')?.value||'Harmônico (Pro)';
+    const gain=audio.createGain(),filter=audio.createBiquadFilter(),parts=v8Wave(kind,octaveFreq(baseFreq)),os=[];
+    filter.type=q('filterType')?.value||'lowpass';
+    filter.frequency.value=v8Num('cutoff',8000);filter.Q.value=v8Num('resonance',.7);
+    filter.connect(gain);gain.connect(kind==='Sub-Bass'?bassGain:leadGain);
+    const attack=v8Num('attack',.02),decay=v8Num('decay',.12),sus=v8Num('sustain',.7);
+    gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.22,now+attack);gain.gain.linearRampToValueAtTime(.22*sus,now+attack+decay);
+    const vib=v8Num('vibrato',0)/100;
+    for(const [type,f,vol] of parts){
+      const o=audio.createOscillator();o.type=type;o.frequency.value=f;o.detune.value=(Math.random()-.5)*7;
+      const vg=audio.createGain();vg.gain.value=vol;o.connect(vg);vg.connect(filter);o.start(now);os.push(o);
+      if(vib){const l=audio.createOscillator(),lg=audio.createGain();l.frequency.value=4.8;lg.gain.value=f*.02*vib;l.connect(lg);lg.connect(o.detune);l.start(now);os.push(l)}
+    }
+    voices.set(key,{gain,filter,os,started:now,baseFreq});highlight(key,true);
+    if(record&&recording&&!v8RecordPaused){
+      const tm=audio.currentTime-recStart-v8PausedTotal;recorded.push({key,freq:baseFreq,time:Math.max(0,tm),duration:0});drawRoll();
+    }
+    if(q('meter')){q('meter').style.width='100%';setTimeout(()=>q('meter')&&(q('meter').style.width='0'),100)}
+  }
+  function v8VoiceOff(key,record=true){
+    const v=voices.get(key);if(!v||!audio)return;
+    if(sustainOn){sustained.add(key);return}
+    const now=audio.currentTime,rel=v8Num('release',.25);
+    v.gain.gain.cancelScheduledValues(now);v.gain.gain.setTargetAtTime(0,now,Math.max(.01,rel/4));
+    setTimeout(()=>v.os.forEach(o=>{try{o.stop()}catch(e){}}),rel*1000+90);
+    voices.delete(key);highlight(key,false);
+    if(record&&recording&&!v8RecordPaused){const last=[...recorded].reverse().find(x=>x.key===key&&x.duration===0);if(last)last.duration=Math.max(.02,now-recStart-v8PausedTotal-last.time)}
+    drawRoll();
+  }
+  /* Replace the old global handlers used by the existing piano listeners. */
+  window.noteOn=function(key,f){
+    if(q('arpEnabled')?.checked&&!v8RecordPaused){
+      arpHeld.set(key,f);startArp();return;
+    }
+    v8VoiceOn(key,f,true);
+  };
+  window.noteOff=function(key){
+    if(q('arpEnabled')?.checked){arpHeld.delete(key);if(!arpHeld.size)stopArp();return}
+    v8VoiceOff(key,true);
+  };
+
+  /* ---------- SUSTAIN ---------- */
+  function setSustain(on){
+    sustainOn=!!on;q('sustainBtn')?.classList.toggle('sustain-on',sustainOn);q('sustainBtn')&&(q('sustainBtn').textContent=sustainOn?'🦶 Sustain ON':'🦶 Sustain');
+    if(!sustainOn){[...sustained].forEach(k=>v8VoiceOff(k,false));sustained.clear()}
+  }
+  q('sustainBtn')?.addEventListener('click',()=>setSustain(!sustainOn));
+
+  /* ---------- METRONOME ---------- */
+  let metroTimer=null;
+  function metroClick(){v8Setup();const o=audio.createOscillator(),g=audio.createGain(),now=audio.currentTime;o.frequency.value=880;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.09,now+.003);g.gain.exponentialRampToValueAtTime(.0001,now+.055);o.connect(g);g.connect(v8Compressor);o.start(now);o.stop(now+.06)}
+  function setMetro(on){clearInterval(metroTimer);if(!on){q('metroBtn')?.classList.remove('active');return}q('metroBtn')?.classList.add('active');metroClick();metroTimer=setInterval(metroClick,60000/v8Num('bpm',100))}
+  q('metroBtn')?.addEventListener('click',()=>setMetro(!metroTimer));
+
+  /* ---------- ARPEGGIATOR ---------- */
+  function stopArp(){clearInterval(arpTimer);arpTimer=null;arpIndex=0;if(arpCurrent){v8VoiceOff(arpCurrent,false);arpCurrent=null}}
+  function startArp(){if(arpTimer||!arpHeld.size)return;v8Setup();const tick=()=>{const keys=[...arpHeld.keys()];if(!keys.length){stopArp();return}if(arpCurrent)v8VoiceOff(arpCurrent,false);const k=keys[arpIndex%keys.length];arpIndex++;arpCurrent=k;v8VoiceOn(k,arpHeld.get(k),true)};tick();arpTimer=setInterval(tick,Math.max(35,v8Num('arpRate',.125)*60000/v8Num('bpm',100)))}
+
+  /* ---------- FX SYNC: PC <-> MOBILE ---------- */
+  const pairs=[['filterType','mFilterType'],['cutoff','mCutoff'],['resonance','mResonance'],['vibrato','mVibrato'],['reverb','mReverb'],['delay','mDelay'],['distortion','mDistortion'],['fxEnabled','mFxEnabled'],['compressor','mCompressor'],['bpm','mBpm'],['arpEnabled','mArpEnabled']];
+  function syncPair(a,b,source){const A=q(a),B=q(b);if(!A||!B)return;if(source===A){if(A.type==='checkbox')B.checked=A.checked;else B.value=A.value}else{if(B.type==='checkbox')A.checked=B.checked;else A.value=B.value}}
+  pairs.forEach(([a,b])=>{
+    q(a)?.addEventListener('input',()=>{syncPair(a,b,q(a));v8Labels();v8Apply();restartMetroIfNeeded();});
+    q(b)?.addEventListener('input',()=>{syncPair(a,b,q(b));v8Labels();v8Apply();restartMetroIfNeeded();});
+  });
+  function restartMetroIfNeeded(){if(metroTimer){clearInterval(metroTimer);metroTimer=setInterval(metroClick,60000/v8Num('bpm',100))}}
+  function v8Labels(){
+    const set=(id,s)=>q(id)&&(q(id).textContent=s);
+    set('cutoffVal',Math.round(v8Num('cutoff',8000))+' Hz');set('mCutoffVal',Math.round(v8Num('mCutoff',8000))+' Hz');
+    set('resVal',v8Num('resonance',.7).toFixed(1));set('mResVal',v8Num('mResonance',.7).toFixed(1));
+    set('vibratoVal',Math.round(v8Num('vibrato',0))+'%');set('mVibratoVal',Math.round(v8Num('mVibrato',0))+'%');
+    set('reverbVal',Math.round(v8Num('reverb',0))+'%');set('mReverbVal',Math.round(v8Num('mReverb',0))+'%');
+    set('delayVal',Math.round(v8Num('delay',0))+'%');set('mDelayVal',Math.round(v8Num('mDelay',0))+'%');
+    set('distVal',Math.round(v8Num('distortion',0))+'%');set('mDistVal',Math.round(v8Num('mDistortion',0))+'%');
+    set('compVal',Math.round(v8Num('compressor',75))+'%');set('mCompVal',Math.round(v8Num('mCompressor',75))+'%');
+    set('bpmVal',v8Num('bpm',100));set('mBpmVal',v8Num('mBpm',100));
+    set('arpVal',(v8Num('arpRate',.125)===.0625?'1/16':v8Num('arpRate',.125)===.25?'1/4':'1/8'));
+  }
+  q('arpRate')?.addEventListener('change',()=>{if(arpTimer){stopArp();startArp()}v8Labels()});
+  function resetFx(){
+    const vals={filterType:'lowpass',cutoff:8000,resonance:.7,vibrato:0,reverb:0,delay:0,distortion:0,compressor:75,pan:0,bpm:100};
+    Object.entries(vals).forEach(([id,v])=>{if(q(id))q(id).value=v});
+    if(q('fxEnabled'))q('fxEnabled').checked=true;if(q('arpEnabled'))q('arpEnabled').checked=false;
+    pairs.forEach(([a,b])=>syncPair(a,b,q(a)));stopArp();v8Labels();v8Apply();q('status').textContent='✨ FX e performance restaurados.';
+  }
+  q('resetFxBtn')?.addEventListener('click',resetFx);q('mResetFxBtn')?.addEventListener('click',resetFx);
+
+  /* ---------- RECORDING REBUILD ---------- */
+  function fmt(s){const m=Math.floor(s/60),sec=s-m*60;return String(m).padStart(2,'0')+':'+sec.toFixed(1).padStart(4,'0')}
+  function recElapsed(){if(!audio)return 0;return Math.max(0,audio.currentTime-recStart-v8PausedTotal)}
+  function timer(){if(q('recTime'))q('recTime').textContent=fmt(recElapsed())}
+  function beginRec(){ensureAudio();recorded=[];recording=true;v8RecordPaused=false;v8PausedTotal=0;recStart=audio.currentTime;q('recBtn').textContent='⏹ Parar gravação';q('recPauseBtn').textContent='⏸ Pausar';q('status').textContent='Gravando...';q('status').className='status recording';clearInterval(v8Timer);v8Timer=setInterval(timer,100);timer();drawRoll()}
+  function endRec(){recording=false;v8RecordPaused=false;clearInterval(v8Timer);q('recBtn').textContent='🔴 Gravar';q('recPauseBtn').textContent='⏸ Pausar';q('status').textContent=recorded.length+' evento(s) gravado(s).';q('status').className='status';timer();drawRoll()}
+  function pauseRec(){if(!recording)return;if(!v8RecordPaused){v8RecordPaused=true;v8PauseAt=audio.currentTime;q('recPauseBtn').textContent='▶ Continuar';q('status').textContent='Gravação pausada.'}else{v8PausedTotal+=Math.max(0,audio.currentTime-v8PauseAt);v8RecordPaused=false;q('recPauseBtn').textContent='⏸ Pausar';q('status').textContent='Gravando...'}}
+  q('recBtn')?.addEventListener('click',()=>recording?endRec():beginRec());q('recPauseBtn')?.addEventListener('click',pauseRec);
+
+  /* ---------- PROJECT SETTINGS ---------- */
+  const oldProject=window.project;
+  window.project=function(){const p=safe(()=>oldProject())||{};return {...p,version:8,theme:localStorage.getItem('pianoSynthTheme')||'dark',filterType:q('filterType')?.value,cutoff:v8Num('cutoff',8000),resonance:v8Num('resonance',.7),vibrato:v8Num('vibrato',0),reverb:v8Num('reverb',0),delay:v8Num('delay',0),distortion:v8Num('distortion',0),fxEnabled:q('fxEnabled')?.checked!==false,compressor:v8Num('compressor',75),pan:v8Num('pan',0),bpm:v8Num('bpm',100),arpEnabled:q('arpEnabled')?.checked===true,arpRate:v8Num('arpRate',.125)}};
+  const oldApply=window.applyProject;
+  window.applyProject=function(p){safe(()=>oldApply(p));['filterType','cutoff','resonance','vibrato','reverb','delay','distortion','compressor','pan','bpm','arpRate'].forEach(k=>{if(p[k]!==undefined&&q(k))q(k).value=p[k]});if(q('fxEnabled'))q('fxEnabled').checked=p.fxEnabled!==false;if(q('arpEnabled'))q('arpEnabled').checked=p.arpEnabled===true;if(p.theme)applyTheme(p.theme);pairs.forEach(([a,b])=>syncPair(a,b,q(a)));v8Labels();v8Apply();drawRoll()};
+
+  /* ---------- COUNTERAPI: direct JSON endpoint ---------- */
+  async function updateCounter(){
+    const el=q('visitorCount');if(!el)return;
+    try{
+      const r=await fetch('https://counterapi.com/api/piano-synth.github.io/view/site-v8',{cache:'no-store'});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      const data=await r.json();
+      const value=data.value??data.count;
+      el.textContent=value==null?'—':Number(value).toLocaleString('pt-BR');
+    }catch(e){console.warn('[Piano Synth] contador indisponível',e);el.textContent='—'}
+  }
+  updateCounter();
+
+  /* ---------- SHARING ---------- */
+  q('shareBtn')?.addEventListener('click',async()=>{
+    if(!recorded.length){q('status').textContent='Grave uma música antes de compartilhar.';return}
+    try{
+      const payload=btoa(unescape(encodeURIComponent(JSON.stringify({recorded,settings:project()}))));
+      const url=location.origin+location.pathname+'#song='+payload;
+      await navigator.clipboard.writeText(url);q('status').textContent='🔗 Link da música copiado!';
+    }catch(e){q('status').textContent='🔗 Link pronto. O navegador bloqueou a cópia automática.';prompt('Copie o link da música:',location.href)}
+  });
+  if(location.hash.startsWith('#song='))safe(()=>{const o=JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(6)))));if(o.recorded)recorded=o.recorded;if(o.settings)applyProject(o.settings);drawRoll();q('status').textContent='🔗 Música carregada pelo link.'});
+
+  /* ---------- KEYBOARD + SUSTAIN ---------- */
+  window.addEventListener('keydown',e=>{if(e.target.matches('input,select,textarea'))return;if(e.key==='Shift'){setSustain(true);return}if(e.key.toLowerCase()==='m'){setMetro(!metroTimer);return}if(e.key.toLowerCase()==='t'){const s=q('themeSelect');if(s){let i=(s.selectedIndex+1)%s.options.length;s.selectedIndex=i;applyTheme(s.value)}return}});
+  window.addEventListener('keyup',e=>{if(e.key==='Shift')setSustain(false)});
+
+  /* ---------- INITIALIZE ---------- */
+  v8Labels();
+  detectDevice();
+  const oldResize=window.onresize;
+  window.addEventListener('resize',()=>{safe(detectDevice);v8Labels()});
+  window.addEventListener('orientationchange',()=>setTimeout(()=>safe(detectDevice),100));
+})();
 </script>
 
 </body>
