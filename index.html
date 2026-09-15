@@ -60,7 +60,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:430px){body.mobile-device .brand small{display:none}body.mobile-device .header-actions button{font-size:10px;padding:7px}body.mobile-device .toolbar button{flex:1 1 calc(50% - 5px)}body.mobile-device .controls{grid-template-columns:1fr 1fr}body.mobile-device .piano{height:235px}body.mobile-device .note-name{font-size:9px}body.mobile-device .key-code{font-size:7px}}
 
 
-/* ==================== V7.0 ==================== */
+/* ==================== V7.5 ==================== */
 .v7-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:var(--accent);color:#111;font-size:10px;font-weight:900;margin-left:6px}
 .v7-panel{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
 .fx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -79,19 +79,46 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 .v7-hint{margin-top:7px}
 @media(max-width:650px){.fx-grid{grid-template-columns:1fr}.v7-badge{font-size:9px}.visitor-counter-card{margin-bottom:2px}}
 
+
+/* ==================== V7.5 THEMES + MOBILE FX ==================== */
+body.theme-neon{--bg:#05030b;--panel:#0d0920;--panel2:#15102e;--border:#563cff;--text:#f5f2ff;--muted:#aaa0d0;--accent:#00f5ff;--accent2:#ff3df2;--danger:#ff5577}
+body.theme-ocean{--bg:#041016;--panel:#071b24;--panel2:#0c2631;--border:#1e7287;--text:#e9fcff;--muted:#91c5d0;--accent:#28d7ff;--accent2:#38ffa9;--danger:#ff6d8a}
+body.theme-sunset{--bg:#170a0b;--panel:#241012;--panel2:#321619;--border:#8c3c31;--text:#fff5ef;--muted:#d5a89b;--accent:#ffb13b;--accent2:#ff5d7a;--danger:#ff526f}
+body.theme-matrix{--bg:#020702;--panel:#061006;--panel2:#0a170a;--border:#185a18;--text:#e9ffe9;--muted:#80bd80;--accent:#39ff6a;--accent2:#b8ff3d;--danger:#ff5b5b}
+body.theme-light{--bg:#eef1f5;--panel:#ffffff;--panel2:#e4e8ee;--border:#c4ccd8;--text:#17202a;--muted:#586575;--accent:#2563eb;--accent2:#7c3aed;--danger:#dc2626}
+body.theme-neon header,body.theme-ocean header,body.theme-sunset header,body.theme-matrix header{background:color-mix(in srgb,var(--bg) 88%,transparent)}
+.theme-select{min-width:130px}
+.mobile-fx-panel{display:none}
+body.mobile-device .mobile-fx-panel{display:block}
+body.mobile-device .v7-panel-desktop{display:none}
+body.mobile-device .mobile-tabs{grid-template-columns:repeat(4,1fr)}
+body.mobile-device.mobile-tab-fx .grid>section{display:none}
+body.mobile-device.mobile-tab-fx aside>.panel{display:none}
+body.mobile-device.mobile-tab-fx .mobile-fx-panel{display:block}
+body.mobile-device.mobile-tab-sound aside>.panel:nth-child(1){display:block}
+body.mobile-device.mobile-tab-projects aside>.panel:nth-child(3){display:block}
+body.mobile-device .v7-panel-mobile{margin-top:0}
+.mobile-fx-panel .fx-grid{grid-template-columns:1fr 1fr}
+@media(max-width:430px){body.mobile-device .mobile-fx-panel .fx-grid{grid-template-columns:1fr}}
+.metronome-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.toggle-card{display:flex;align-items:center;justify-content:space-between;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--panel2)}
+.sustain-on{background:var(--accent)!important;color:#111!important;border-color:var(--accent)!important}
+.counter-number{font-variant-numeric:tabular-nums;font-weight:800;min-width:2ch}
+
 </style>
 </head>
 <body>
 <header>
   <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V7.0</span></small></div>
   <div class="header-actions">
-    <button id="themeBtn">🌙 Tema</button><button id="fullBtn">⛶ Tela cheia</button>
+    <select id="themeSelect" class="theme-select" title="Tema"><option value="dark">☕ Mocha</option><option value="cyber">⚡ Cyberpunk</option><option value="neon">💜 Neon</option><option value="ocean">🌊 Ocean</option><option value="sunset">🌅 Sunset</option><option value="matrix">🟢 Matrix</option><option value="light">☀️ Claro</option></select><button id="themeBtn">🎨 Tema</button><button id="fullBtn">⛶ Tela cheia</button>
   </div>
 </header>
 <main>
 <div class="mobile-tabs" role="tablist">
 <button class="active" data-mobile-tab="main">🎹 Piano</button>
 <button data-mobile-tab="sound">🎛️ Som</button>
+<button data-mobile-tab="fx">✨ FX</button>
 <button data-mobile-tab="projects">💾 Projetos</button>
 </div>
 <div class="grid">
@@ -99,7 +126,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 <div class="panel">
   <div class="toolbar">
     <button id="recBtn">🔴 Gravar</button><button id="recPauseBtn">⏸ Pausar</button><span id="recTime" class="rec-time">00:00.0</span><button id="playBtn">▶️ Reproduzir</button><button id="stopBtn">⏹ Parar</button><button id="clearBtn" class="danger">🗑 Limpar</button>
-    <button id="saveBtn">💾 Salvar</button><button id="loadBtn">📂 Carregar</button>
+    <button id="saveBtn">💾 Salvar</button><button id="loadBtn">📂 Carregar</button><button id="sustainBtn">🦶 Sustain</button><button id="metroBtn">🥁 Metrônomo</button>
   </div>
   <div class="piano-wrap" id="pianoWrap"><div class="piano" id="piano"></div></div>
   <div class="status" id="status">Toque uma tecla para ativar o áudio.</div><div class="hint mobile-hint" id="deviceHint">📱 Modo celular detectado automaticamente • deslize o dedo pelas teclas</div>
@@ -114,7 +141,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 <div class="panel">
 <h2>🎛️ Som</h2>
 <div class="controls">
-<div class="control"><label>Onda</label><select id="wave"><option>Harmônico (Pro)</option><option>Senoidal (Puro)</option><option>Quadrada (8-bit)</option><option>Dente de Serra</option><option>Órgão</option><option>SuperSaw</option><option>Brass (Sopro)</option><option>Sub-Bass</option></select></div>
+<div class="control"><label>Onda</label><select id="wave"><option>Harmônico (Pro)</option><option>Senoidal (Puro)</option><option>Quadrada (8-bit)</option><option>Dente de Serra</option><option>Órgão</option><option>SuperSaw</option><option>Brass (Sopro)</option><option>Sub-Bass</option><option>Triangle Soft</option><option>Digital Bell</option><option>Lo-Fi</option></select></div>
 <div class="control"><label>Oitava <b id="octVal">4</b></label><input id="oct" type="range" min="2" max="6" value="4"></div>
 <div class="control"><label>Nome das notas</label><select id="noteStyle"><option value="latin">Dó, Ré, Mi, Fá</option><option value="letters">C, D, E, F</option></select></div>
 <div class="control"><label>Master <b id="masterVal">72%</b></label><input id="master" type="range" min="0" max="100" value="72"></div>
@@ -127,8 +154,8 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 </div>
 </div>
 
-<div class="panel v7-panel" style="margin-top:14px">
-<h2>✨ V7.0 — Efeitos & Filtro</h2>
+<div class="panel v7-panel v7-panel-desktop" style="margin-top:14px">
+<h2>✨ V7.5 — Efeitos & Filtro</h2>
 <div class="fx-grid">
   <div class="control"><label>Filtro</label><select id="filterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
   <div class="control"><label>Cutoff <b id="cutoffVal">8000 Hz</b></label><input id="cutoff" type="range" min="80" max="18000" step="10" value="8000"></div>
@@ -144,6 +171,21 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
   <button id="shareBtn">🔗 Compartilhar música</button>
 </div>
 <div class="hint v7-hint">Low/High/Band-pass, vibrato, reverb, delay e distortion são processados pelo Web Audio.</div>
+</div>
+<div class="panel mobile-fx-panel v7-panel-mobile">
+<h2>✨ Efeitos & Filtro</h2>
+<div class="fx-grid">
+  <div class="control"><label>Filtro</label><select id="mFilterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
+  <div class="control"><label>Cutoff <b id="mCutoffVal">8000 Hz</b></label><input id="mCutoff" type="range" min="80" max="18000" step="10" value="8000"></div>
+  <div class="control"><label>Resonância <b id="mResVal">0.7</b></label><input id="mResonance" type="range" min="0.1" max="18" step="0.1" value="0.7"></div>
+  <div class="control"><label>Vibrato <b id="mVibratoVal">0%</b></label><input id="mVibrato" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Reverb <b id="mReverbVal">0%</b></label><input id="mReverb" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Delay <b id="mDelayVal">0%</b></label><input id="mDelay" type="range" min="0" max="100" value="0"></div>
+  <div class="control"><label>Distortion <b id="mDistVal">0%</b></label><input id="mDistortion" type="range" min="0" max="100" value="0"></div>
+  <div class="toggle-card"><span>🎚️ FX ativos</span><input id="mFxEnabled" type="checkbox" checked></div>
+</div>
+<div class="v7-actions"><button id="mResetFxBtn">↺ Reset FX</button></div>
+<div class="hint">Os controles do celular ficam sincronizados com os controles do PC.</div>
 </div>
 
 <div class="panel" style="margin-top:14px">
@@ -162,10 +204,9 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 
 <div class="visitor-counter-card" aria-live="polite">
   👀 <span>Visitas ao Piano Synth:</span>
-  <div class="counterapi" ns="piano-synth.github.io" key="site" action="view" noIcon="true" noLink="true" noCss="true" noFormatting="false"></div>
+  <span id="visitorCount" class="counter-number">…</span>
 </div>
-<script src="https://counterapi.com/c.js?ns=piano-synth.github.io" async></script>
-<div class="footer">Piano Synth V7.0 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
+<div class="footer">Piano Synth V7.5 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
 </main>
 <script>
 const WHITE=[
@@ -281,7 +322,7 @@ $('downloadPyBtn')?.addEventListener('click',downloadPythonOffline);
 window.addEventListener('keydown',e=>{if(e.target.matches('input,select,textarea'))return;if(e.repeat)return;if(e.key==='Escape'){voices.forEach((_,k)=>noteOff(k));return}if(e.key==='ArrowUp'){e.preventDefault();$('oct').value=Math.min(6,+$('oct').value+1);updateLabels();return}if(e.key==='ArrowDown'){e.preventDefault();$('oct').value=Math.max(2,+$('oct').value-1);updateLabels();return}if(e.key===' '){e.preventDefault();clearAll();return}if(e.key.toLowerCase()==='r'){recording?stopRec():startRec();return}if(e.key.toLowerCase()==='p'){playing?stopPlayback():playRecording();return}const k=e.key;const n=keyInfo(k);if(n)noteOn(k,+n[2])});window.addEventListener('keyup',e=>{const n=keyInfo(e.key);if(n)noteOff(e.key)});
 document.querySelectorAll('.mobile-tabs button').forEach(btn=>btn.addEventListener('click',()=>{
  const tab=btn.dataset.mobileTab;
- document.body.classList.remove('mobile-tab-main','mobile-tab-sound','mobile-tab-projects');
+ document.body.classList.remove('mobile-tab-main','mobile-tab-sound','mobile-tab-fx','mobile-tab-projects');
  document.body.classList.add('mobile-tab-'+tab);
  document.querySelectorAll('.mobile-tabs button').forEach(b=>b.classList.toggle('active',b===btn));
 }));
