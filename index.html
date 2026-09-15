@@ -60,7 +60,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:430px){body.mobile-device .brand small{display:none}body.mobile-device .header-actions button{font-size:10px;padding:7px}body.mobile-device .toolbar button{flex:1 1 calc(50% - 5px)}body.mobile-device .controls{grid-template-columns:1fr 1fr}body.mobile-device .piano{height:235px}body.mobile-device .note-name{font-size:9px}body.mobile-device .key-code{font-size:7px}}
 
 
-/* ==================== V8.0 ==================== */
+/* ==================== V8.2 ==================== */
 .v7-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:var(--accent);color:#111;font-size:10px;font-weight:900;margin-left:6px}
 .v7-panel{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
 .fx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -80,7 +80,7 @@ body.desktop-device .desktop-only-download{display:inline-flex;align-items:cente
 @media(max-width:650px){.fx-grid{grid-template-columns:1fr}.v7-badge{font-size:9px}.visitor-counter-card{margin-bottom:2px}}
 
 
-/* ==================== V8.0 THEMES + MOBILE FX ==================== */
+/* ==================== V8.3 THEMES + MOBILE FX ==================== */
 body.theme-neon{--bg:#05030b;--panel:#0d0920;--panel2:#15102e;--border:#563cff;--text:#f5f2ff;--muted:#aaa0d0;--accent:#00f5ff;--accent2:#ff3df2;--danger:#ff5577}
 body.theme-ocean{--bg:#041016;--panel:#071b24;--panel2:#0c2631;--border:#1e7287;--text:#e9fcff;--muted:#91c5d0;--accent:#28d7ff;--accent2:#38ffa9;--danger:#ff6d8a}
 body.theme-sunset{--bg:#170a0b;--panel:#241012;--panel2:#321619;--border:#8c3c31;--text:#fff5ef;--muted:#d5a89b;--accent:#ffb13b;--accent2:#ff5d7a;--danger:#ff526f}
@@ -106,7 +106,7 @@ body.mobile-device .v7-panel-mobile{margin-top:0}
 .counter-number{font-variant-numeric:tabular-nums;font-weight:800;min-width:2ch}
 
 
-/* ==================== V8.0 UI ==================== */
+/* ==================== V8.3 UI ==================== */
 body.theme-purple{--bg:#10051b;--panel:#1a0b2b;--panel2:#24103a;--border:#7044a5;--text:#f7ecff;--muted:#c2a8d8;--accent:#d56bff;--accent2:#6ef2ff;--danger:#ff648d}
 body.theme-forest{--bg:#06130d;--panel:#0a2015;--panel2:#0e2b1c;--border:#2d7049;--text:#eafff0;--muted:#91c6a5;--accent:#55e88a;--accent2:#c7ff6a;--danger:#ff6876}
 body.theme-ice{--bg:#07111d;--panel:#0c1c2d;--panel2:#10283d;--border:#3c6f9d;--text:#edf8ff;--muted:#9fc1d9;--accent:#6ee7ff;--accent2:#9aa7ff;--danger:#ff718b}
@@ -127,13 +127,49 @@ body.mobile-device.mobile-tab-projects .grid>section{display:none}
 @media(max-width:650px){.mobile-extra-controls{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.theme-select{min-width:0;max-width:180px}.header-actions{width:auto}}
 @media(max-width:430px){.controls{grid-template-columns:1fr}.header-actions{gap:4px}.theme-select{width:130px}}
 
+
+/* ==================== V8.2 POLISH ==================== */
+.theme-picker{position:relative;z-index:1000}.theme-button{min-width:148px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;background:linear-gradient(135deg,var(--panel2),var(--panel));box-shadow:0 5px 18px #0003}.theme-chevron{opacity:.65;font-size:15px;transition:transform .18s}.theme-picker.open .theme-chevron{transform:rotate(180deg)}
+.theme-menu{position:absolute;right:0;top:calc(100% + 8px);width:310px;padding:12px;border:1px solid var(--border);border-radius:16px;background:color-mix(in srgb,var(--panel) 94%,transparent);box-shadow:0 18px 45px #0007;backdrop-filter:blur(18px);display:none}.theme-picker.open .theme-menu{display:block}.theme-menu-title{font-size:12px;color:var(--muted);font-weight:800;padding:2px 4px 10px}.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.theme-option{display:flex;align-items:center;gap:8px;text-align:left;padding:8px 9px;border-radius:10px;background:var(--panel2);border:1px solid transparent;font-size:12px;min-width:0}.theme-option:hover{border-color:var(--accent);transform:none;filter:none}.theme-option.active{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent),0 0 14px color-mix(in srgb,var(--accent) 18%,transparent)}.theme-option i{width:20px;height:20px;flex:0 0 20px;border-radius:50%;background:linear-gradient(135deg,var(--sw1),var(--sw2));border:1px solid #fff4}.theme-option[data-theme="dark"] i{--sw1:#d99a58;--sw2:#171311}.theme-option[data-theme="cyber"] i{--sw1:#00e5ff;--sw2:#ff4fd8}.theme-option[data-theme="neon"] i{--sw1:#00f5ff;--sw2:#ff3df2}.theme-option[data-theme="ocean"] i{--sw1:#28d7ff;--sw2:#38ffa9}.theme-option[data-theme="sunset"] i{--sw1:#ffb13b;--sw2:#ff5d7a}.theme-option[data-theme="matrix"] i{--sw1:#39ff6a;--sw2:#020702}.theme-option[data-theme="purple"] i{--sw1:#d56bff;--sw2:#6ef2ff}.theme-option[data-theme="forest"] i{--sw1:#55e88a;--sw2:#06130d}.theme-option[data-theme="ice"] i{--sw1:#6ee7ff;--sw2:#9aa7ff}.theme-option[data-theme="rose"] i{--sw1:#ff6f9f;--sw2:#ffc0d6}.theme-option[data-theme="amber"] i{--sw1:#ffbf47;--sw2:#ffe48a}.theme-option[data-theme="graphite"] i{--sw1:#cbd5e1;--sw2:#22262b}.theme-option[data-theme="light"] i{--sw1:#ffffff;--sw2:#2563eb}
+/* Never let the responsive tab system hide the actual piano. */
+#pianoWrap{display:block!important;visibility:visible!important;min-height:260px}.piano{display:flex!important;visibility:visible!important;min-height:240px}.piano>.white,.piano>.black{visibility:visible!important}
+@media(max-width:650px){.theme-menu{position:fixed;right:10px;top:58px;width:min(310px,calc(100vw - 20px));max-height:70vh;overflow:auto}.theme-button{min-width:116px;padding:9px 10px}.theme-button span:first-of-type{max-width:75px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+@media(max-width:430px){.theme-button{min-width:48px}.theme-button #themeButtonLabel{display:none}.theme-menu{top:54px}.theme-grid{grid-template-columns:1fr 1fr}}
+
+
+/* ==================== V8.2 PIANO HARD FIX ==================== */
+#pianoWrap.piano-wrap-hardfix{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;min-height:245px!important;height:auto!important;overflow:hidden!important;}
+#piano.piano-hardfix{display:flex!important;visibility:visible!important;opacity:1!important;position:relative!important;width:100%!important;min-width:0!important;height:260px!important;min-height:220px!important;}
+#piano.piano-hardfix .white{display:flex!important;visibility:visible!important;opacity:1!important;position:relative!important;flex:1 1 0!important;height:100%!important;z-index:1!important;}
+#piano.piano-hardfix .black{display:flex!important;visibility:visible!important;opacity:1!important;position:absolute!important;top:0!important;height:60%!important;z-index:5!important;}
+@media(max-width:430px){#piano.piano-hardfix{height:235px!important;min-height:235px!important}}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V8.0</span></small></div>
+  <div class="brand">🎹 ULTIMATE SYNTH STUDIO <small>PRO • Mobile + PC <span class="v7-badge">V8.3</span></small></div>
   <div class="header-actions">
-    <select id="themeSelect" class="theme-select" title="Tema"><option value="dark">☕ Mocha</option><option value="cyber">⚡ Cyberpunk</option><option value="neon">💜 Neon</option><option value="ocean">🌊 Ocean</option><option value="sunset">🌅 Sunset</option><option value="matrix">🟢 Matrix</option><option value="purple">🟣 Purple Haze</option><option value="forest">🌲 Forest</option><option value="ice">🧊 Ice</option><option value="rose">🌹 Rose</option><option value="amber">🟠 Amber</option><option value="graphite">🪨 Graphite</option><option value="light">☀️ Claro</option></select><button id="fullBtn">⛶ Tela cheia</button>
+    <div class="theme-picker" id="themePicker">
+  <button id="themeButton" class="theme-button" type="button" aria-haspopup="true" aria-expanded="false">🎨 <span id="themeButtonLabel">Tema</span> <span class="theme-chevron">⌄</span></button>
+  <div class="theme-menu" id="themeMenu" role="menu" aria-label="Escolher tema">
+    <div class="theme-menu-title">🎨 Escolha o visual</div>
+    <div class="theme-grid">
+      <button type="button" data-theme="dark" class="theme-option"><i></i><span>☕ Mocha</span></button>
+      <button type="button" data-theme="cyber" class="theme-option"><i></i><span>⚡ Cyberpunk</span></button>
+      <button type="button" data-theme="neon" class="theme-option"><i></i><span>💜 Neon</span></button>
+      <button type="button" data-theme="ocean" class="theme-option"><i></i><span>🌊 Ocean</span></button>
+      <button type="button" data-theme="sunset" class="theme-option"><i></i><span>🌅 Sunset</span></button>
+      <button type="button" data-theme="matrix" class="theme-option"><i></i><span>🟢 Matrix</span></button>
+      <button type="button" data-theme="purple" class="theme-option"><i></i><span>🟣 Purple Haze</span></button>
+      <button type="button" data-theme="forest" class="theme-option"><i></i><span>🌲 Forest</span></button>
+      <button type="button" data-theme="ice" class="theme-option"><i></i><span>🧊 Ice</span></button>
+      <button type="button" data-theme="rose" class="theme-option"><i></i><span>🌹 Rose</span></button>
+      <button type="button" data-theme="amber" class="theme-option"><i></i><span>🟠 Amber</span></button>
+      <button type="button" data-theme="graphite" class="theme-option"><i></i><span>🪨 Graphite</span></button>
+      <button type="button" data-theme="light" class="theme-option"><i></i><span>☀️ Claro</span></button>
+    </div>
+  </div>
+</div><button id="fullBtn">⛶ Tela cheia</button>
   </div>
 </header>
 <main>
@@ -181,7 +217,7 @@ body.mobile-device.mobile-tab-projects .grid>section{display:none}
 </div>
 
 <div class="panel v7-panel v7-panel-desktop fx-panel-desktop" style="margin-top:14px">
-<h2>✨ V8.0 — Efeitos & Filtro</h2>
+<h2>✨ V8.3 — Efeitos & Filtro</h2>
 <div class="fx-grid">
   <div class="control"><label>Filtro</label><select id="filterType"><option value="lowpass">Low-pass</option><option value="highpass">High-pass</option><option value="bandpass">Band-pass</option></select></div>
   <div class="control"><label>Cutoff <b id="cutoffVal">8000 Hz</b></label><input id="cutoff" type="range" min="80" max="18000" step="10" value="8000"></div>
@@ -237,7 +273,7 @@ body.mobile-device.mobile-tab-projects .grid>section{display:none}
   👀 <span>Visitas ao Piano Synth:</span>
   <span id="visitorCount" class="counter-number">…</span>
 </div>
-<div class="footer">Piano Synth V8.0 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
+<div class="footer">Piano Synth V8.2 • Web Audio API • GitHub Pages • funciona em celular e PC</div>
 </main>
 <script>
 const WHITE=[
@@ -378,7 +414,7 @@ buildPiano();updateLabels();loadProjects();
 
 <script>
 /* ============================================================
-   PIANO SYNTH V8.0 — FX / PIANO ROLL / SHARING / RECORD TIMER
+   PIANO SYNTH V8.3 — FX / PIANO ROLL / SHARING / RECORD TIMER
    ============================================================ */
 let v7FxReady=false,v7ReverbNode=null,v7ReverbWet=null,v7DelayNode=null,v7DelayWet=null,v7DistNode=null,v7DistWet=null,v7FxBus=null;
 let v7RecordPaused=false,v7RecordPauseAt=0,v7RecordPausedTotal=0,v7RecTimer=null,v7SelectedEvent=-1,v7Drag=null;
@@ -505,7 +541,7 @@ v7UpdateLabels();v7LoadShared();
 
 <script>
 /* ============================================================
-   PIANO SYNTH V8.0 — CLEAN RUNTIME REBUILD
+   PIANO SYNTH V8.3 — CLEAN RUNTIME REBUILD
    Rebuilds the V7.5 audio/effects layer without replacing the
    working piano, projects or GitHub Pages architecture.
    ============================================================ */
@@ -524,9 +560,17 @@ v7UpdateLabels();v7LoadShared();
     localStorage.setItem('pianoSynthTheme',name);
     if(q('themeSelect')) q('themeSelect').value=name;
   }
+  const themeNames={dark:'☕ Mocha',cyber:'⚡ Cyberpunk',neon:'💜 Neon',ocean:'🌊 Ocean',sunset:'🌅 Sunset',matrix:'🟢 Matrix',purple:'🟣 Purple Haze',forest:'🌲 Forest',ice:'🧊 Ice',rose:'🌹 Rose',amber:'🟠 Amber',graphite:'🪨 Graphite',light:'☀️ Claro'};
   const savedTheme=localStorage.getItem('pianoSynthTheme')||'dark';
-  applyTheme(savedTheme);
-  q('themeSelect')?.addEventListener('change',e=>applyTheme(e.target.value));
+  function refreshThemeUI(name){
+    const label=q('themeButtonLabel'); if(label)label.textContent=themeNames[name]||'Tema';
+    document.querySelectorAll('.theme-option').forEach(b=>b.classList.toggle('active',b.dataset.theme===name));
+  }
+  applyTheme(savedTheme); refreshThemeUI(savedTheme);
+  const themePicker=q('themePicker'),themeButton=q('themeButton');
+  themeButton?.addEventListener('click',e=>{e.stopPropagation();const open=themePicker.classList.toggle('open');themeButton.setAttribute('aria-expanded',String(open));});
+  document.querySelectorAll('.theme-option').forEach(btn=>btn.addEventListener('click',()=>{applyTheme(btn.dataset.theme);refreshThemeUI(btn.dataset.theme);themePicker?.classList.remove('open');themeButton?.setAttribute('aria-expanded','false');}));
+  document.addEventListener('click',e=>{if(themePicker&&!themePicker.contains(e.target)){themePicker.classList.remove('open');themeButton?.setAttribute('aria-expanded','false');}});
 
   /* ---------- FULLSCREEN ---------- */
   q('fullBtn')?.addEventListener('click',async()=>{
@@ -681,7 +725,7 @@ v7UpdateLabels();v7LoadShared();
 
   /* ---------- METRONOME ---------- */
   let metroTimer=null;
-  function metroClick(){v8Setup();const o=audio.createOscillator(),g=audio.createGain(),now=audio.currentTime;o.frequency.value=880;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.09,now+.003);g.gain.exponentialRampToValueAtTime(.0001,now+.055);o.connect(g);g.connect(v8Compressor);o.start(now);o.stop(now+.06)}
+  function metroClick(){v8Setup();const o=audio.createOscillator(),g=audio.createGain(),now=audio.currentTime;o.type='square';o.frequency.value=1120;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.22,now+.002);g.gain.exponentialRampToValueAtTime(.0001,now+.085);o.connect(g);g.connect(v8Compressor);o.start(now);o.stop(now+.09)}
   function setMetro(on){clearInterval(metroTimer);if(!on){q('metroBtn')?.classList.remove('active');return}q('metroBtn')?.classList.add('active');metroClick();metroTimer=setInterval(metroClick,60000/v8Num('bpm',100))}
   q('metroBtn')?.addEventListener('click',()=>setMetro(!metroTimer));
 
@@ -768,7 +812,124 @@ v7UpdateLabels();v7LoadShared();
   window.addEventListener('resize',()=>{safe(detectDevice);v8Labels()});
   window.addEventListener('orientationchange',()=>setTimeout(()=>safe(detectDevice),100));
 })();
+
+  /* ---------- V8.2 PIANO SAFETY NET ---------- */
+  function ensurePianoVisible(){
+    const piano=q('piano');
+    if(piano && !piano.querySelector('[data-key]') && typeof buildPiano==='function'){
+      try{buildPiano()}catch(e){console.warn('[Piano Synth] piano rebuild failed',e)}
+    }
+    const wrap=q('pianoWrap');
+    if(wrap){wrap.style.display='block';wrap.style.visibility='visible'}
+    if(piano){piano.style.display='flex';piano.style.visibility='visible'}
+  }
+  window.addEventListener('load',()=>setTimeout(ensurePianoVisible,0));
+  document.querySelectorAll('.mobile-tabs button').forEach(btn=>btn.addEventListener('click',()=>{
+    if(btn.dataset.mobileTab==='main')setTimeout(ensurePianoVisible,0);
+  }));
+  setTimeout(ensurePianoVisible,50);
+
 </script>
 
+
+<script>
+/* V8.3 — independent piano renderer. This does not depend on the older V8 tab/runtime layers. */
+(function(){
+  const WHITE=[
+    ['a','C',261.63],['s','D',293.66],['d','E',329.63],['f','F',349.23],['g','G',392.00],['h','A',440.00],['j','B',493.88],
+    ['k','C2',523.25],['l','D2',587.33],['m','E2',659.25],['z','F2',698.46],['x','G2',783.99],['c','A2',880.00],['v','B2',987.77]
+  ];
+  const BLACK=[
+    ['w','C#',277.18,0],['e','D#',311.13,1],['t','F#',369.99,3],['y','G#',415.30,4],['u','A#',466.16,5],
+    ['o','C#2',554.37,7],['p','D#2',622.25,8], [']','F#2',739.99,10],['[','G#2',830.61,11],['=','A#2',932.33,12]
+  ];
+  function noteLabel(note){
+    const el=document.getElementById('noteStyle');
+    if(el && el.value==='letters') return note;
+    const map={C:'Dó','C#':'Dó#',D:'Ré','D#':'Ré#',E:'Mi',F:'Fá','F#':'Fá#',G:'Sol','G#':'Sol#',A:'Lá','A#':'Lá#',B:'Si'};
+    const m=String(note).match(/^(C#|D#|F#|G#|A#|C|D|E|F|G|A|B)(.*)$/);
+    return m?(map[m[1]]||m[1])+m[2]:note;
+  }
+  function renderPianoHard(){
+    const wrap=document.getElementById('pianoWrap'), piano=document.getElementById('piano');
+    if(!wrap||!piano)return;
+    wrap.classList.add('piano-wrap-hardfix');
+    piano.classList.add('piano-hardfix');
+    piano.replaceChildren();
+    WHITE.forEach(n=>{
+      const k=document.createElement('div');
+      k.className='white'; k.dataset.key=n[0]; k.dataset.freq=n[2];
+      k.innerHTML='<div><div class="note-name">'+noteLabel(n[1])+'</div><div class="key-code">'+n[0].toUpperCase()+'</div></div>';
+      piano.appendChild(k);
+    });
+    BLACK.forEach(n=>{
+      const k=document.createElement('div');
+      k.className='black'; k.dataset.key=n[0]; k.dataset.freq=n[2];
+      k.style.left='calc('+((n[3]+1)*100/14)+'% - 2.6%)';
+      k.innerHTML='<div><div>'+noteLabel(n[1])+'</div><div class="key-code">'+n[0]+'</div></div>';
+      piano.appendChild(k);
+    });
+    // Keep the Piano tab visible on mobile regardless of which legacy tab rule ran first.
+    if(document.body.classList.contains('mobile-device')){
+      document.body.classList.add('mobile-tab-main');
+      document.querySelectorAll('.mobile-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.mobileTab==='main'));
+    }
+  }
+  function ready(){
+    renderPianoHard();
+    setTimeout(renderPianoHard,120);
+    setTimeout(renderPianoHard,500);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',ready,{once:true});
+  else ready();
+  window.addEventListener('orientationchange',()=>setTimeout(renderPianoHard,150));
+  window.addEventListener('resize',()=>setTimeout(renderPianoHard,80));
+  window.PianoSynthHardRender=renderPianoHard;
+})();
+</script>
+
+<script>
+/* V8.4 — keyboard engine: isolated from the old shortcut handlers */
+(function(){
+  const KEYS = new Set(['a','s','d','f','g','h','j','k','l','m','z','x','c','v','w','e','t','y','u','o','p',']','[','=']);
+  const physical = {
+    KeyA:'a',KeyS:'s',KeyD:'d',KeyF:'f',KeyG:'g',KeyH:'h',KeyJ:'j',KeyK:'k',KeyL:'l',KeyM:'m',
+    KeyZ:'z',KeyX:'x',KeyC:'c',KeyV:'v',KeyW:'w',KeyE:'e',KeyT:'t',KeyY:'y',KeyU:'u',KeyO:'o',KeyP:'p',
+    BracketRight:']',BracketLeft:'[',Equal:'='
+  };
+  const down=new Set();
+  function pianoKey(e){
+    let k=String(e.key||'').toLowerCase();
+    if(k==='´' || k==='+' || k==='=' ) k='=';
+    if(!KEYS.has(k)) k=physical[e.code] || '';
+    return KEYS.has(k) ? k : '';
+  }
+  function visual(k,on){
+    const el=document.querySelector('#piano [data-key="'+CSS.escape(k)+'"]');
+    if(el)el.classList.toggle('active',on);
+  }
+  window.addEventListener('keydown',function(e){
+    if(e.ctrlKey||e.altKey||e.metaKey) return;
+    if(e.target && e.target.matches && e.target.matches('input,textarea,select,[contenteditable="true"]')) return;
+    const k=pianoKey(e); if(!k)return;
+    e.preventDefault();
+    if(down.has(k))return;
+    down.add(k); visual(k,true);
+    try{ if(typeof ensureAudio==='function') ensureAudio(); }catch(_){ }
+    try{
+      const n=typeof keyInfo==='function' ? keyInfo(k) : null;
+      if(n && typeof noteOn==='function') noteOn(k,+n[2]);
+    }catch(err){ console.warn('[Piano Synth] keyboard note error',err); }
+  },true);
+  window.addEventListener('keyup',function(e){
+    const k=pianoKey(e); if(!k)return;
+    e.preventDefault(); down.delete(k); visual(k,false);
+    try{if(typeof noteOff==='function')noteOff(k)}catch(_){ }
+  },true);
+  window.addEventListener('blur',function(){
+    down.forEach(k=>{try{if(typeof noteOff==='function')noteOff(k)}catch(_){ }visual(k,false)});down.clear();
+  });
+})();
+</script>
 </body>
 </html>
